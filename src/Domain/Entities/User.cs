@@ -46,7 +46,7 @@ public class User
     #endregion
 
     #region Relations
-    public ICollection<Message> Messages { get; set; }
+    //public ICollection<Message> Messages { get; set; }
     public ICollection<UserRole> UserRoles { get; set; }
     #endregion
 }

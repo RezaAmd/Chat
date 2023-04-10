@@ -1,28 +1,27 @@
-﻿using Chat.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Chat.Infrastructure.Persistence.Configurations.Identity
+namespace Chat.Infrastructure.Persistence.Configurations.Identity;
+
+public class RoleConfiguration : IEntityTypeConfiguration<Role>
 {
-    public class RoleConfiguration : IEntityTypeConfiguration<Role>
+    public void Configure(EntityTypeBuilder<Role> builder)
     {
-        public void Configure(EntityTypeBuilder<Role> b)
-        {
-            b.ToTable("Roles");
-            // Each Role can have many entries in the UserRole join table
-            b.HasMany(e => e.UserRoles)
-                .WithOne(e => e.Role)
-                .HasForeignKey(ur => ur.RoleId)
-                .IsRequired();
+        builder.HasKey(u => u.Id); // primary key
+        builder.Property(u => u.Id).ValueGeneratedNever();
 
-            // Each Role can have many associated RoleClaims
-            //b.HasMany(e => e.RoleClaims)
-            //    .WithOne(e => e.Role)
-            //    .HasForeignKey(rc => rc.RoleId)
-            //    .IsRequired();
+        builder.Property(u => u.Name)
+            .IsRequired()
+            .HasMaxLength(50);
+        builder.HasIndex(r => r.Name)
+            .IsUnique();
 
-            b.HasIndex(r => r.Name)
-                .IsUnique();
-        }
+        builder.Property(r => r.Title)
+            .HasMaxLength(50);
+
+        // Each Role can have many entries in the UserRole join table
+        builder.HasMany(e => e.UserRoles)
+            .WithOne(e => e.Role)
+            .HasForeignKey(ur => ur.RoleId)
+            .IsRequired();
     }
 }

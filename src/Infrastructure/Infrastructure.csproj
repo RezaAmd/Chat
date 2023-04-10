@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Common\Models\**" />
+    <EmbeddedResource Remove="Common\Models\**" />
+    <None Remove="Common\Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="C:\Users\Reza\.nuget\packages\rest.service\1.0.4\contentFiles\any\net5.0\favicon.ico" />
   </ItemGroup>
 
@@ -33,7 +39,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Models\" />
     <Folder Include="Persistence\Migrations\" />
   </ItemGroup>
 
