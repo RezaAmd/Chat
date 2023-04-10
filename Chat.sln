@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentations", "Presentati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "src\Presentations\WebApi\WebApi.csproj", "{26F1755F-020B-4655-9119-1A429A8280F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUi", "src\Presentations\WebUi\WebUi.csproj", "{189B836E-ABE0-4390-B24D-E9B6BBDBEF79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebUi", "src\Presentations\WebUi\WebUi.csproj", "{189B836E-ABE0-4390-B24D-E9B6BBDBEF79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,5 +1,4 @@
 ﻿using Chat.Application.Interfaces.Identity;
-using Chat.Application.Models;
 using Chat.Application.Services.Identity;
 using MapsterMapper;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,16 +15,7 @@ namespace Chat.Application
                 .AddScoped<RoleService>()
                 .AddTransient<IMapper, Mapper>();
 
-            services.AddControllers().AddNewtonsoftJson(options =>
-            {
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-                options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
-            });
-
-            //.AddJsonOptions(options =>
-            //{
-            //    options.JsonSerializerOptions.IgnoreNullValues = true;
-            //})
+            services.AddControllers();
 
             return services;
         }
