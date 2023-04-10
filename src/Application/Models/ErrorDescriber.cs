@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Application.Models
+namespace Chat.Application.Models
 {
     public class ErrorDescriber : IdentityErrorDescriber
     {

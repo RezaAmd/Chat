@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Application.Extensions
+namespace Chat.Application.Extensions
 {
     public static class RandomGenerator
     {

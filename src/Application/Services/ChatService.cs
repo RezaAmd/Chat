@@ -1,7 +1,7 @@
-﻿using Application.Interfaces;
+﻿using Chat.Application.Interfaces;
 using Chat.Infrastructure.Persistence.Context;
 
-namespace Application.Services;
+namespace Chat.Application.Services;
 
 public class ChatService : IChatService
 {

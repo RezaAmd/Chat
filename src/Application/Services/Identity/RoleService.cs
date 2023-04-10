@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 
-namespace Application.Services.Identity;
+namespace Chat.Application.Services.Identity;
 
 public class RoleService
 {

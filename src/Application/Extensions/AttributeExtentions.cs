@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Application.Extensions
+namespace Chat.Application.Extensions
 {
     public class ModelStateValidate : ActionFilterAttribute
     {

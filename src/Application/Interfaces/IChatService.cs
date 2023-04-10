@@ -1,7 +1,4 @@
-﻿using Application.Models;
-using Domain.Entities;
-
-namespace Application.Interfaces;
+﻿namespace Chat.Application.Interfaces;
 public interface IChatService
 {
 }

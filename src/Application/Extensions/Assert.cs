@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Linq;
 
-namespace Application.Extensions
+namespace Chat.Application.Extensions
 {
     public class Assert
     {

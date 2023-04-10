@@ -1,9 +1,9 @@
-﻿using Application.Models;
+﻿using Chat.Application.Models;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 
-namespace Application.Interfaces
+namespace Chat.Application.Interfaces
 {
     public interface IJwtService
     {

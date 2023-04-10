@@ -1,4 +1,4 @@
-﻿namespace Application.Interfaces.Identity;
+﻿namespace Chat.Application.Interfaces.Identity;
 
 public interface IUserService
 {

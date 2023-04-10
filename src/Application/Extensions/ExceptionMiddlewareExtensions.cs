@@ -1,10 +1,10 @@
-﻿using Application.Models;
+﻿using Chat.Application.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using System.Net;
 
-namespace Application.Extensions
+namespace Chat.Application.Extensions
 {
     public static class ExceptionMiddlewareExtensions
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Application.Models
+namespace Chat.Application.Models
 {
     public class PaginatedList<T>
     {

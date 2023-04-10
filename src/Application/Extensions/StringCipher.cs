@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Application.Extensions
+namespace Chat.Application.Extensions
 {
     public static class StringCipher
     {

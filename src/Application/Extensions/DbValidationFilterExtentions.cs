@@ -1,8 +1,8 @@
-﻿using Application.Models;
+﻿using Chat.Application.Models;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 
-namespace Application.Extensions
+namespace Chat.Application.Extensions
 {
     public static class DbValidationFilterExtentions
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Application.Models
+namespace Chat.Application.Models
 {
     public class Result
     {
@@ -8,7 +8,7 @@ namespace Application.Models
         internal Result(bool succeeded, List<Error> errors = null)
         {
             Succeeded = succeeded;
-            Errors = errors ;
+            Errors = errors;
         }
 
         public bool Succeeded { get; set; }

@@ -1,4 +1,4 @@
-﻿namespace Application.Models
+﻿namespace Chat.Application.Models
 {
     public class Error
     {

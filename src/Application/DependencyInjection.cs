@@ -1,10 +1,10 @@
-﻿using Application.Interfaces.Identity;
-using Application.Models;
-using Application.Services.Identity;
+﻿using Chat.Application.Interfaces.Identity;
+using Chat.Application.Models;
+using Chat.Application.Services.Identity;
 using MapsterMapper;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Application
+namespace Chat.Application
 {
     public static class DependencyInjection
     {

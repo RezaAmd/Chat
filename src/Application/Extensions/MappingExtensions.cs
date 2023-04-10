@@ -1,9 +1,9 @@
-﻿using Application.Models;
+﻿using Chat.Application.Models;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Application.Extensions
+namespace Chat.Application.Extensions
 {
     public static class MappingExtensions
     {

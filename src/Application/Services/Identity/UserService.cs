@@ -1,7 +1,7 @@
-﻿using Application.Extensions;
-using Application.Interfaces;
-using Application.Interfaces.Identity;
-using Application.Models;
+﻿using Chat.Application.Extensions;
+using Chat.Application.Interfaces;
+using Chat.Application.Interfaces.Identity;
+using Chat.Application.Models;
 using Chat.Domain.Entities;
 using Chat.Infrastructure.Persistence.Context;
 using Mapster;
@@ -12,7 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Security.Claims;
 
-namespace Application.Services.Identity
+namespace Chat.Application.Services.Identity
 {
     public class UserService : IUserService
     {
