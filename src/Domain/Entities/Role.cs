@@ -1,4 +1,4 @@
-﻿namespace Domain.Entities;
+﻿namespace Chat.Domain.Entities;
 public class Role
 {
     #region Constructors

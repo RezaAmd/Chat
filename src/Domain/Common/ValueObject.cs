@@ -1,4 +1,4 @@
-﻿namespace Domain.Common;
+﻿namespace Chat.Domain.Common;
 
 public abstract class ValueObject
 {

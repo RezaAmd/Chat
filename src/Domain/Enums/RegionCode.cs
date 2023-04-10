@@ -1,4 +1,4 @@
-﻿namespace Domain.Enums
+﻿namespace Chat.Domain.Enums
 {
     public enum RegionCode
     {

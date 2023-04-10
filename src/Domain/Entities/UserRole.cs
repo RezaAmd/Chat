@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Domain.Entities;
+namespace Chat.Domain.Entities;
 
 public class UserRole
 {

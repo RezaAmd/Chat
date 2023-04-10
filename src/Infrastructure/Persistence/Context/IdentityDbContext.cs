@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿using Chat.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 

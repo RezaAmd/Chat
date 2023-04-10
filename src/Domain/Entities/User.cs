@@ -1,7 +1,7 @@
-﻿using Domain.Enums;
-using Domain.ValueObjects;
+﻿using Chat.Domain.Enums;
+using Chat.Domain.ValueObjects;
 
-namespace Domain.Entities;
+namespace Chat.Domain.Entities;
 
 public class User
 {
