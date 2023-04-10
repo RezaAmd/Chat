@@ -93,8 +93,7 @@ namespace Chat.Application.Services.Identity
             bool withClaims = false, TypeAdapterConfig config = null)
         {
             var init = context.Users.Where(u => u.Username == identity.ToUpper()
-            || u.PhoneNumber == identity
-            || u.Id == identity);
+            || u.PhoneNumber == identity);
             #region include's
             if (asNoTracking)
                 init = init.AsNoTracking();
@@ -110,7 +109,7 @@ namespace Chat.Application.Services.Identity
         public (Result Status, string Token) GenerateJwtToken(User user, DateTime? expire = default)
         {
             var claims = new List<Claim>();
-            claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id));
+            claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
             claims.Add(new Claim(ClaimTypes.Name, user.Username));
             if (user.UserRoles != null)
                 foreach (var role in user.UserRoles)

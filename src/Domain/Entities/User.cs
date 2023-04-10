@@ -1,7 +1,4 @@
-﻿using Chat.Domain.Enums;
-using Chat.Domain.ValueObjects;
-
-namespace Chat.Domain.Entities;
+﻿namespace Chat.Domain.Entities;
 
 public class User
 {
@@ -15,7 +12,7 @@ public class User
     }
     #endregion
 
-    public string Id { get; private set; }
+    public Guid Id { get; private set; }
     public RegionCode RegionCode { get; private set; }
     public string PhoneNumber { get; private set; }
     public FullName? FullName { get; private set; }
@@ -26,7 +23,7 @@ public class User
     #region Methods
     private void Initialize()
     {
-        Id = Guid.NewGuid().ToString();
+        Id = Guid.NewGuid();
         JoinedDate = DateTime.Now;
     }
 

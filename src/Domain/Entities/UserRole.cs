@@ -6,8 +6,9 @@ public class UserRole
 {
     #region Constructor
     UserRole() { }
-    public UserRole(string userId, string roleId)
+    public UserRole(Guid userId, Guid roleId)
     {
+        Id = Guid.NewGuid();
         UserId = userId;
         RoleId = roleId;
         CreatedDateTime = DateTime.Now;
@@ -15,13 +16,14 @@ public class UserRole
     #endregion
 
 #nullable disable
-    public DateTime CreatedDateTime { get; set; }
+    public Guid Id { get; private set; }
+    public DateTime CreatedDateTime { get; private set; }
 
     [ForeignKey("User")]
-    public string UserId { get; set; }
+    public Guid UserId { get; set; }
 
     [ForeignKey("Role")]
-    public string RoleId { get; set; }
+    public Guid RoleId { get; set; }
 
     #region Relations
     public virtual User User { get; set; }

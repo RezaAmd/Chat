@@ -5,12 +5,12 @@ public class Role
     Role() { }
     public Role(string name)
     {
-        Id = Guid.NewGuid().ToString();
+        Id = Guid.NewGuid();
         Name = name;
     }
     #endregion
 
-    public string Id { get; set; }
+    public Guid Id { get; set; }
     public string Name { get; set; }
 
     #region Relations
