@@ -1,10 +1,10 @@
-﻿using Infrastructure.Common.Interfaces;
-using Infrastructure.Common.Services.EmailServices;
-using Infrastructure.Common.Services.JwtServices;
-using Infrastructure.Common.Services.RedisServices;
-using Infrastructure.Common.Services.SmsServices;
-using Infrastructure.Persistence.Configs;
-using Infrastructure.Persistence.Context;
+﻿using Chat.Infrastructure.Common.Interfaces;
+using Chat.Infrastructure.Common.Services.EmailServices;
+using Chat.Infrastructure.Common.Services.JwtServices;
+using Chat.Infrastructure.Common.Services.RedisServices;
+using Chat.Infrastructure.Common.Services.SmsServices;
+using Chat.Infrastructure.Persistence.Configs;
+using Chat.Infrastructure.Persistence.Context;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +14,7 @@ using Microsoft.IdentityModel.Tokens;
 using RestSharp;
 using System.Text;
 
-namespace Infrastructure
+namespace Chat.Infrastructure
 {
     public static class DependencyInjection
     {

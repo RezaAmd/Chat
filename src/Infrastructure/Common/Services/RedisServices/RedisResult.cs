@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.Common.Services.RedisServices;
+﻿namespace Chat.Infrastructure.Common.Services.RedisServices;
 
 
 public class RedisResult

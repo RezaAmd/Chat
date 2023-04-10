@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.Persistence.Configs
+﻿namespace Chat.Infrastructure.Persistence.Configs
 {
     class ConnectionStrings
     {

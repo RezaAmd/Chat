@@ -1,6 +1,6 @@
-﻿using Infrastructure.Common.Services.EmailServices;
+﻿using Chat.Infrastructure.Common.Services.EmailServices;
 
-namespace Infrastructure.Common.Interfaces;
+namespace Chat.Infrastructure.Common.Interfaces;
 
 public interface IEmailService
 {

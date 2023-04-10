@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.Common.Services.SmsServices;
+﻿namespace Chat.Infrastructure.Common.Services.SmsServices;
 
 public class SmsResult
 {

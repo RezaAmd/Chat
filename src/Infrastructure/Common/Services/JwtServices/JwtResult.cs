@@ -1,6 +1,6 @@
 ﻿using Infrastructure.Common.Services.RedisServices;
 
-namespace Infrastructure.Common.Services.JwtServices;
+namespace Chat.Infrastructure.Common.Services.JwtServices;
 
 public class JwtResult
 {

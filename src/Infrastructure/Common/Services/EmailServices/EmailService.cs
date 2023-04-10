@@ -1,10 +1,10 @@
-﻿using Infrastructure.Common.Interfaces;
+﻿using Chat.Infrastructure.Common.Interfaces;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MimeKit;
 
-namespace Infrastructure.Common.Services.EmailServices
+namespace Chat.Infrastructure.Common.Services.EmailServices
 {
     public class EmailService : IEmailService
     {

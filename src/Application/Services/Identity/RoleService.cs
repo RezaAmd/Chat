@@ -1,4 +1,4 @@
-﻿using Infrastructure.Persistence.Context;
+﻿using Chat.Infrastructure.Persistence.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 

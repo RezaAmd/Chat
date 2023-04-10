@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace Infrastructure.Common.Services.JwtServices;
+namespace Chat.Infrastructure.Common.Services.JwtServices;
 
 public interface IJwtService
 {

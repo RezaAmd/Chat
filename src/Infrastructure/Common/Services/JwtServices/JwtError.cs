@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Common.Services.JwtServices;
+namespace Chat.Infrastructure.Common.Services.JwtServices;
 
 public class JwtError
 {

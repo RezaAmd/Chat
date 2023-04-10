@@ -3,6 +3,7 @@ using Application.Interfaces;
 using Application.Interfaces.Identity;
 using Application.Models;
 using Chat.Domain.Entities;
+using Chat.Infrastructure.Persistence.Context;
 using Mapster;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;

@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
 
-namespace Infrastructure.Common.Services.RedisServices
+namespace Chat.Infrastructure.Common.Services.RedisServices
 {
     public class RedisService : IRedisService
     {

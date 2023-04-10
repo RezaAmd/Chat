@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Common.Services.RedisServices;
+namespace Chat.Infrastructure.Common.Services.RedisServices;
 
 public class RedisError
 {

@@ -1,6 +1,6 @@
-﻿using Infrastructure.Common.Services.SmsServices;
+﻿using Chat.Infrastructure.Common.Services.SmsServices;
 
-namespace Infrastructure.Common.Interfaces;
+namespace Chat.Infrastructure.Common.Interfaces;
 
 public interface ISmsService
 {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
-namespace Infrastructure.Persistence.Context;
+namespace Chat.Infrastructure.Persistence.Context;
 
 public class IdentityDbContext : DbContext
 {

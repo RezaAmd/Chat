@@ -1,5 +1,5 @@
 ﻿using Application.Interfaces;
-using Infrastructure.Persistence.Context;
+using Chat.Infrastructure.Persistence.Context;
 
 namespace Application.Services;
 

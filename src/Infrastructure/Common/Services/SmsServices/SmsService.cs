@@ -1,10 +1,10 @@
-﻿using Infrastructure.Common.Interfaces;
+﻿using Chat.Infrastructure.Common.Interfaces;
 using RestSharp;
 using RestSharp.Service;
 using RestSharp.Service.Models;
 using System.Net;
 
-namespace Infrastructure.Common.Services.SmsServices;
+namespace Chat.Infrastructure.Common.Services.SmsServices;
 
 public class SmsService : ISmsService
 {
