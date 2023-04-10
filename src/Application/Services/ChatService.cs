@@ -1,15 +1,13 @@
 ﻿using Application.Interfaces;
-using Application.Interfaces.Context;
-using Application.Models;
-using Domain.Entities;
+using Infrastructure.Persistence.Context;
 
 namespace Application.Services;
 
-public class ChatService : BaseService<Message>, IChatService
+public class ChatService : IChatService
 {
     #region Init
-    private readonly IDbContext context;
-    public ChatService(IDbContext _context)
+    private readonly IdentityDbContext context;
+    public ChatService(IdentityDbContext _context)
     {
         context = _context;
     }

@@ -1,7 +1,4 @@
-﻿using Domain.Enums;
-using System.Collections.Generic;
-
-namespace Infrastructure.Common.Models
+﻿namespace Infrastructure.Common.Services.EmailServices
 {
     public class EmailSettings
     {
@@ -14,8 +11,8 @@ namespace Infrastructure.Common.Models
     public class EmailInfo
     {
         public string name { get; set; }
-        public FromEmail from { get; set; }
         public string username { get; set; }
+        public string from { get; set; }
         public string password { get; set; }
     }
 }

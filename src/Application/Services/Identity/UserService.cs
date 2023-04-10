@@ -1,6 +1,5 @@
-﻿using Application.Extentions;
+﻿using Application.Extensions;
 using Application.Interfaces;
-using Application.Interfaces.Context;
 using Application.Interfaces.Identity;
 using Application.Models;
 using Domain.Entities;
@@ -14,7 +13,7 @@ using System.Security.Claims;
 
 namespace Application.Services.Identity
 {
-    public class UserService : BaseService<User>, IUserService
+    public class UserService : IUserService
     {
         #region Constructor
         private readonly IUserStore<User> store;
@@ -26,7 +25,7 @@ namespace Application.Services.Identity
         private readonly ErrorDescriber errors;
         private readonly IServiceProvider serviceProvider;
         private readonly ILogger<UserManager<User>> logger;
-        private readonly IDbContext context;
+        private readonly IdentityDbContext context;
         private readonly IJwtService jwtService;
 
         public UserService(IUserStore<User> _store,
@@ -38,10 +37,8 @@ namespace Application.Services.Identity
             ErrorDescriber _errors,
             IServiceProvider _serviceProvider,
             ILogger<UserManager<User>> _logger,
-            IDbContext _context,
+            IdentityDbContext _context,
             IJwtService _jwtService)
-            : base(_store, _options, _passwordHasher, _userValidators, _passwordValidators,
-                _normalizer, _errors, _serviceProvider, _logger)
         {
             store = _store;
             options = _options;
@@ -73,8 +70,8 @@ namespace Application.Services.Identity
                 init = init.AsNoTracking();
             // search
             if (!string.IsNullOrEmpty(keyword))
-                init = init.Where(u => keyword.Contains(u.Username) || keyword.Contains(u.Name)
-                 || keyword.Contains(u.Surname));
+                init = init.Where(u => keyword.Contains(u.Username) || keyword.Contains(u.FullName.Name)
+                 || keyword.Contains(u.FullName.Surname));
 
             // include roles
             if (withRoles)
@@ -92,7 +89,7 @@ namespace Application.Services.Identity
         /// <param name="identity">identity for find</param>
         /// <returns>user</returns>
         public async Task<User> FindByIdentityAsync(string identity, bool asNoTracking = false, bool withRoles = false,
-            bool withClaims = false, bool withTokens = false, TypeAdapterConfig config = null)
+            bool withClaims = false, TypeAdapterConfig config = null)
         {
             var init = context.Users.Where(u => u.Username == identity.ToUpper()
             || u.PhoneNumber == identity
@@ -103,10 +100,8 @@ namespace Application.Services.Identity
             if (withRoles)
                 init = init.Include(u => u.UserRoles)
                     .ThenInclude(ur => ur.Role);
-            if (withClaims)
-                init = init.Include(u => u.Claims);
-            if (withTokens)
-                init = init.Include(u => u.Tokens);
+            //if (withClaims)
+            //    init = init.Include(u => u.Claims);
             #endregion
             return await init.FirstOrDefaultAsync();
         }
@@ -146,7 +141,6 @@ namespace Application.Services.Identity
             }
             return (Result.Failed(), null);
         }
-
         #endregion
     }
 }

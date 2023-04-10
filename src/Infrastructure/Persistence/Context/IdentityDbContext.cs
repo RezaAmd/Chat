@@ -1,11 +1,10 @@
-﻿using Application.Interfaces.Context;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace Infrastructure.Persistence.Context;
 
-public class IdentityDbContext : DbContext, IDbContext
+public class IdentityDbContext : DbContext
 {
     public IdentityDbContext(DbContextOptions<IdentityDbContext> options)
         : base(options)

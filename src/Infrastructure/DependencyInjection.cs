@@ -1,8 +1,8 @@
-﻿using Application.Interfaces;
-using Application.Interfaces.Context;
-using Infrastructure.Common.Interfaces;
-using Infrastructure.Common.Models;
-using Infrastructure.Common.Services;
+﻿using Infrastructure.Common.Interfaces;
+using Infrastructure.Common.Services.EmailServices;
+using Infrastructure.Common.Services.JwtServices;
+using Infrastructure.Common.Services.RedisServices;
+using Infrastructure.Common.Services.SmsServices;
 using Infrastructure.Persistence.Configs;
 using Infrastructure.Persistence.Context;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -52,7 +52,7 @@ namespace Infrastructure
             //    .AddErrorDescriber<ErrorDescriber>()
             //    .AddDefaultTokenProviders();
 
-            services.AddScoped<IDbContext, IdentityDbContext>()
+            services.AddScoped<IdentityDbContext>()
                 .AddRestServices();
 
             return services;

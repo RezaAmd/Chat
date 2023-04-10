@@ -1,11 +1,8 @@
-﻿using Application.Models;
-using Domain.Enums;
-using System.Threading.Tasks;
+﻿using Infrastructure.Common.Services.EmailServices;
 
-namespace Infrastructure.Common.Interfaces
+namespace Infrastructure.Common.Interfaces;
+
+public interface IEmailService
 {
-    public interface IEmailService
-    {
-        Task<Result> SendAsync(string reciever, string subject, string body, FromEmail from = FromEmail.Noreplay, string recieverName = default);
-    }
+    Task<EmailResult> SendAsync(string reciever, string subject, string body, string from, string recieverName = default);
 }

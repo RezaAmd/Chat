@@ -1,16 +1,10 @@
-﻿using Application.Models;
-using Domain.Enums;
-using Infrastructure.Common.Interfaces;
-using Infrastructure.Common.Models;
+﻿using Infrastructure.Common.Interfaces;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MimeKit;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Infrastructure.Common.Services
+namespace Infrastructure.Common.Services.EmailServices
 {
     public class EmailService : IEmailService
     {
@@ -26,7 +20,7 @@ namespace Infrastructure.Common.Services
         }
         #endregion
 
-        public async Task<Result> SendAsync(string reciever, string subject, string body, FromEmail from = FromEmail.Noreplay,
+        public async Task<EmailResult> SendAsync(string reciever, string subject, string body, string from,
             string recieverName = default)
         {
             // sender email
@@ -48,7 +42,7 @@ namespace Infrastructure.Common.Services
                     client.Authenticate(SenderEmail.username, SenderEmail.password);
                     await client.SendAsync(message);
                     await client.DisconnectAsync(true);
-                    return Result.Success;
+                    return EmailResult.Success;
                 }
                 catch (Exception ex)
                 {
@@ -57,7 +51,7 @@ namespace Infrastructure.Common.Services
             }
             else
                 logger.LogWarning("Sender email not found!");
-            return Result.Failed();
+            return EmailResult.Failed();
         }
     }
 }

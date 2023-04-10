@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace Infrastructure.Common.Models
+namespace Infrastructure.Common.Services.EmailServices
 {
     public class EmailTemplate
     {

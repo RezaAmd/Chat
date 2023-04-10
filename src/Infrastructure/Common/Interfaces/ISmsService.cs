@@ -1,11 +1,9 @@
-﻿using Application.Models;
-using System.Threading.Tasks;
+﻿using Infrastructure.Common.Services.SmsServices;
 
-namespace Infrastructure.Common.Interfaces
+namespace Infrastructure.Common.Interfaces;
+
+public interface ISmsService
 {
-    public interface ISmsService
-    {
-        Task<Result> SendAsync(string reciever, string text);
-        Task<Result> SendOtpAsync(string reciever, string token);
-    }
+    Task<SmsResult> SendAsync(string reciever, string text);
+    Task<SmsResult> SendOtpAsync(string reciever, string token);
 }
