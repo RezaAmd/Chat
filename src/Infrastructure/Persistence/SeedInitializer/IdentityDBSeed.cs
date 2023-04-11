@@ -1,4 +1,4 @@
-﻿namespace Chat.Infrastructure.Persistence.Configurations.Seeds
+﻿namespace Chat.Infrastructure.Persistence.SeedInitializer
 {
     public static class IdentityDBSeed
     {

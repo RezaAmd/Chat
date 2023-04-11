@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Chat.Infrastructure.Persistence.Migrations
 {
-    [DbContext(typeof(IdentityDbContext))]
+    [DbContext(typeof(Context.AppDbContext))]
     [Migration("20230410181313_Initialize_User_Role_Tbl")]
     partial class Initialize_User_Role_Tbl
     {

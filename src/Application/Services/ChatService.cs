@@ -1,13 +1,12 @@
 ﻿using Chat.Application.Interfaces;
-using Chat.Infrastructure.Persistence.Context;
 
 namespace Chat.Application.Services;
 
 public class ChatService : IChatService
 {
     #region Init
-    private readonly IdentityDbContext context;
-    public ChatService(IdentityDbContext _context)
+    private readonly AppDbContext context;
+    public ChatService(AppDbContext _context)
     {
         context = _context;
     }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Chat.Infrastructure.Persistence.Migrations
 {
-    [DbContext(typeof(IdentityDbContext))]
+    [DbContext(typeof(Context.AppDbContext))]
     partial class IdentityDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

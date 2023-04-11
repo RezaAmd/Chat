@@ -9,10 +9,10 @@ public class RoleService
     #region Constructor
     private readonly ILookupNormalizer keyNormalizer;
     private readonly ILogger<RoleService> logger;
-    private readonly IdentityDbContext context;
+    private readonly Infrastructure.Persistence.Context.AppDbContext context;
     public RoleService(ILookupNormalizer _keyNormalizer,
         ILogger<RoleService> _logger,
-        IdentityDbContext _context)
+        Infrastructure.Persistence.Context.AppDbContext _context)
     {
         keyNormalizer = _keyNormalizer;
         logger = _logger;

@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Chat.Infrastructure.Common.Consts;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Chat.Infrastructure.Persistence.Configurations.Identity;
+namespace Chat.Infrastructure.Persistence.Configurations.Identities;
 
 public class UserConfiguration : IEntityTypeConfiguration<User>
 {
@@ -17,12 +18,11 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder.Property(u => u.RegionCode)
             .IsRequired()
-            .HasColumnType("byte");
+            .HasColumnType(DataTypes.tinyint);
 
         builder.Property(u => u.Username)
             .HasMaxLength(50)
             ;
-
 
         // Value objects
         builder.OwnsOne(u => u.PasswordHash, option =>

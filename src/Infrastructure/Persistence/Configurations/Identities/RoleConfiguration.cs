@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Chat.Infrastructure.Persistence.Configurations.Identity;
+namespace Chat.Infrastructure.Persistence.Configurations.Identities;
 
 public class RoleConfiguration : IEntityTypeConfiguration<Role>
 {

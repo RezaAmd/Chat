@@ -3,11 +3,9 @@ using Chat.Infrastructure.Common.Services.EmailServices;
 using Chat.Infrastructure.Common.Services.JwtServices;
 using Chat.Infrastructure.Common.Services.RedisServices;
 using Chat.Infrastructure.Common.Services.SmsServices;
-using Chat.Infrastructure.Persistence.Configs;
 using Chat.Infrastructure.Persistence.Context;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -21,9 +19,9 @@ namespace Chat.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
             #region Introduction
-            services.AddDbContext<IdentityDbContext>(options =>
-            options.UseSqlServer(ConnectionStrings.Identity,
-            b => b.MigrationsAssembly(typeof(IdentityDbContext).Assembly.FullName)));
+            //services.AddDbContext<AppDbContext>(options =>
+            //options.UseSqlServer(ConnectionStrings.Identity,
+            //b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
             #endregion
 
             #region Options
@@ -52,7 +50,7 @@ namespace Chat.Infrastructure
             //    .AddErrorDescriber<ErrorDescriber>()
             //    .AddDefaultTokenProviders();
 
-            services.AddScoped<IdentityDbContext>()
+            services.AddScoped<AppDbContext>()
                 .AddRestServices();
 
             return services;

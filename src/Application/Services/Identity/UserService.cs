@@ -26,7 +26,7 @@ namespace Chat.Application.Services.Identity
         private readonly ErrorDescriber errors;
         private readonly IServiceProvider serviceProvider;
         private readonly ILogger<UserManager<User>> logger;
-        private readonly IdentityDbContext context;
+        private readonly Infrastructure.Persistence.Context.AppDbContext context;
         private readonly IJwtService jwtService;
 
         public UserService(IUserStore<User> _store,
@@ -38,7 +38,7 @@ namespace Chat.Application.Services.Identity
             ErrorDescriber _errors,
             IServiceProvider _serviceProvider,
             ILogger<UserManager<User>> _logger,
-            IdentityDbContext _context,
+            Infrastructure.Persistence.Context.AppDbContext _context,
             IJwtService _jwtService)
         {
             store = _store;
