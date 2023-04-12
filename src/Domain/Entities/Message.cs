@@ -3,15 +3,15 @@
     public class Message
     {
 #nullable disable
-        public long Id { get; set; }
-        public string Body { get; set; }
-        public DateTime CreatedDateTime { get; set; }
-        public string OwnerId { get; set; }
+        public long Id { get; private set; }
+        public string Body { get; private set; }
+        public DateTime CreatedDateTime { get; private set; }
+        public string OwnerId { get; private set; }
 #nullable enable
         public DateTime? EditedDateTime { get; set; }
         public long? ReplyId { get; set; }
-        public string? RoomId { get; set; }
-        public string? GroupId { get; set; }
+        public string? RoomId { get; private set; }
+        public string? GroupId { get; private set; }
 
 #nullable disable
         #region relations
