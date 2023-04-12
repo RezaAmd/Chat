@@ -8,6 +8,7 @@
 
 <div class="container">
     <div id="userinfo" class="row">
+        <h5 id="connectionid"></h5>
         <label>Please enter your username</label>
         <input type="text" class="form-control" id="username" name="username" autocomplete="off" />
         <div class="d-grid">
@@ -46,9 +47,16 @@
             li.textContent = encodedMsg;
             document.getElementById("messageList").appendChild(li);
         });
-
+        
         connection.start().then(function () {
             document.getElementById("sendButton").disabled = false;
+
+            connection.invoke("UserOnConnected").then(function (connectionId) {
+                document.getElementById("connectionid").innerText = connectionId;
+            }).catch(function (err) {
+                return console.error(err.toString());
+            });
+
         }).catch(function (err) {
             debugger
             return console.error(err.toString());
@@ -56,7 +64,7 @@
 
         document.getElementById("sendButton").addEventListener("click", function (event) {
             var message = document.getElementById("message").value;
-            connection.invoke("SendMessage", username, message).then(function () {
+            connection.invoke("SendBroadcastMessage", username, message).then(function () {
                 document.getElementById("message").value = "";
             }).catch(function (err) {
                 return console.error(err.toString());
