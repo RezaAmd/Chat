@@ -67,7 +67,7 @@
         "use strict";
 
         //#region Chat
-        var chatConnection = new signalR.HubConnectionBuilder().withUrl("/chathub").build();
+        var chatConnection = new signalR.HubConnectionBuilder().withUrl("/hubs/chat").build();
         var username = '';
         document.getElementById("sendButton").disabled = true;
 
@@ -116,7 +116,7 @@
         //#endregion
 
         //#region Notification
-        var notificationConnection = new signalR.HubConnectionBuilder().withUrl("/notificationhub").build();
+        var notificationConnection = new signalR.HubConnectionBuilder().withUrl("/hubs/notification").build();
 
         notificationConnection.start().then(function () {
             document.getElementById("send-notification-btn").disabled = false;
@@ -147,6 +147,6 @@
                 body: body
             });
         });
-                        // #endregion
+        // #endregion
     </script>
 }

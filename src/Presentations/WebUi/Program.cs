@@ -29,14 +29,14 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.MapHub<ChatHub>("/chathub", options =>
+app.MapHub<ChatHub>("/hubs/chat", options =>
 {
     options.Transports =
         HttpTransportType.WebSockets |
         HttpTransportType.LongPolling;
 });
 
-app.MapHub<NotificationHub>("/notificationhub", options =>
+app.MapHub<NotificationHub>("/hubs/notification", options =>
 {
     options.Transports =
         HttpTransportType.WebSockets |
