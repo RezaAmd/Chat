@@ -11,6 +11,7 @@
         <label class="small">Connection Id: <span id="connectionid"></span></label>
     </div>
     <div class="row">
+        @* Join to message *@
         <div id="userinfo" class="col-6">
             <div class="mb-2">
                 <label class="mb-1">Please enter your username</label>
@@ -20,6 +21,7 @@
                 <button type="button" class="btn btn-primary" onclick="SetUsername()">Join to chat</button>
             </div>
         </div>
+        @* Message Area *@
         <div id="messagearea" class="col-6" style="display:none;">
             <div>Joined as: <b><span id="username1">Not Set</span></b></div>
             <hr />
@@ -29,8 +31,10 @@
                 </div>
             </div>
             <hr />
-            <input id="message" class="form-control" type="text" autocomplete="off" />
-            <input id="sendButton" class="btn btn-primary" type="button" value="Send Message" />
+            <div class="d-flex gap-2">
+                <input id="message" class="form-control" type="text" autocomplete="off" />
+                <button id="sendButton" class="btn btn-primary"><i class="fa-regular fa-paper-plane-top"></i></button>
+            </div>
         </div>
         @* Notification *@
         <div id="notification" class="col-6">
@@ -88,7 +92,7 @@
 
         document.getElementById("sendButton").addEventListener("click", function (event) {
             var message = document.getElementById("message").value;
-            chatconnection.invoke("SendBroadcastMessage", username, message).then(function () {
+            chatConnection.invoke("SendBroadcastMessage", username, message).then(function () {
                 document.getElementById("message").value = "";
             }).catch(function (err) {
                 return console.error(err.toString());
@@ -143,6 +147,6 @@
                 body: body
             });
         });
-                // #endregion
+                        // #endregion
     </script>
 }
