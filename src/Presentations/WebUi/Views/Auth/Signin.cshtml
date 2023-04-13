@@ -1,7 +1,20 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Signin";
 }
-
-<h1>Signin</h1>
-
+<div class="row mt-5 mb-5">
+    <div class="col-12 col-md-4 offset-md-4">
+        <h3>Signin to your account</h3>
+        <div class="mb-2">
+            <label for="phonenumber" class="mb-1">Phone Number</label>
+            <div class="input-group">
+                <select class="input-group-text" id="inputGroupSelect01">
+                    <option selected>+98</option>
+                </select>
+                <input id="phonenumber" class="form-control text-center" type="text" style="letter-spacing:2px;" maxlength="10" placeholder="XXXXXXXXXX" />
+            </div>
+        </div>
+        <div class="d-grid">
+            <button class="btn btn-primary">Send</button>
+        </div>
+    </div>
+</div>
