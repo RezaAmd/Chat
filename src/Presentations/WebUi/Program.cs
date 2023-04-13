@@ -35,4 +35,12 @@ app.MapHub<ChatHub>("/chathub", options =>
         HttpTransportType.WebSockets |
         HttpTransportType.LongPolling;
 });
+
+app.MapHub<NotificationHub>("/notificationhub", options =>
+{
+    options.Transports =
+        HttpTransportType.WebSockets |
+        HttpTransportType.LongPolling;
+});
+
 app.Run();

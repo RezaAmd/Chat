@@ -7,25 +7,52 @@
 </div>
 
 <div class="container">
-    <div id="userinfo" class="row">
-        <h5 id="connectionid"></h5>
-        <label>Please enter your username</label>
-        <input type="text" class="form-control" id="username" name="username" autocomplete="off" />
-        <div class="d-grid">
-            <button type="button" class="btn" onclick="SetUsername()">Join</button>
-        </div>
+    <div class="row">
+        <label class="small">Connection Id: <span id="connectionid"></span></label>
     </div>
-    <div id="messagearea" class="row" style="display:none;">
-        <div>Joined as: <b><span id="username1">Not Set</span></b></div>
-        <hr />
-        <div class="row">
-            <div class="col-6">
-                <ul id="messageList"></ul>
+    <div class="row">
+        <div id="userinfo" class="col-6">
+            <div class="mb-2">
+                <label class="mb-1">Please enter your username</label>
+                <input type="text" class="form-control" id="username" name="username" autocomplete="off" />
+            </div>
+            <div class="d-grid">
+                <button type="button" class="btn btn-primary" onclick="SetUsername()">Join to chat</button>
             </div>
         </div>
-        <hr />
-        <input type="text" id="message" autocomplete="off" />
-        <input type="button" id="sendButton" value="Send Message" />
+        <div id="messagearea" class="col-6" style="display:none;">
+            <div>Joined as: <b><span id="username1">Not Set</span></b></div>
+            <hr />
+            <div class="row">
+                <div class="col-6">
+                    <ul id="messageList"></ul>
+                </div>
+            </div>
+            <hr />
+            <input id="message" class="form-control" type="text" autocomplete="off" />
+            <input id="sendButton" class="btn btn-primary" type="button" value="Send Message" />
+        </div>
+        @* Notification *@
+        <div id="notification" class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <label class="card-title">Notification</label>
+                </div>
+                <div class="card-body">
+                    <div class="mb-2">
+                        <label>Title</label>
+                        <input id="notification-title" type="text" class="form-control" />
+                    </div>
+                    <div class="mb-2">
+                        <label>Message</label>
+                        <textarea id="notification-body" rows="3" class="form-control"></textarea>
+                    </div>
+                    <div class="d-grid">
+                        <button id="send-notification-btn" class="btn btn-primary" onclick="SendNotification();" disabled>Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -35,36 +62,33 @@
     <script>
         "use strict";
 
-        var connection = new signalR.HubConnectionBuilder().withUrl("/chathub").build();
+        //#region Chat
+        var chatConnection = new signalR.HubConnectionBuilder().withUrl("/chathub").build();
         var username = '';
-
         document.getElementById("sendButton").disabled = true;
 
-        connection.on("RecieveMessage", function (user, message) {
+        chatConnection.on("RecieveMessage", function (user, message) {
             var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
             var encodedMsg = user + " sys: " + msg;
             var li = document.createElement("li");
             li.textContent = encodedMsg;
             document.getElementById("messageList").appendChild(li);
         });
-        
-        connection.start().then(function () {
-            document.getElementById("sendButton").disabled = false;
 
-            connection.invoke("UserOnConnected").then(function (connectionId) {
+        chatConnection.start().then(function () {
+            document.getElementById("sendButton").disabled = false;
+            chatConnection.invoke("UserOnConnected").then(function (connectionId) {
                 document.getElementById("connectionid").innerText = connectionId;
             }).catch(function (err) {
                 return console.error(err.toString());
             });
-
         }).catch(function (err) {
-            debugger
             return console.error(err.toString());
         });
 
         document.getElementById("sendButton").addEventListener("click", function (event) {
             var message = document.getElementById("message").value;
-            connection.invoke("SendBroadcastMessage", username, message).then(function () {
+            chatconnection.invoke("SendBroadcastMessage", username, message).then(function () {
                 document.getElementById("message").value = "";
             }).catch(function (err) {
                 return console.error(err.toString());
@@ -85,5 +109,40 @@
             document.getElementById("messagearea").style.display = 'block';
             document.getElementById("username1").innerText = username;
         }
+        //#endregion
+
+        //#region Notification
+        var notificationConnection = new signalR.HubConnectionBuilder().withUrl("/notificationhub").build();
+
+        notificationConnection.start().then(function () {
+            document.getElementById("send-notification-btn").disabled = false;
+        }).catch(function (err) {
+            return console.error(err.toString());
+        });
+
+
+        function SendNotification() {
+            var title = document.getElementById("notification-title").value;
+            var body = document.getElementById("notification-body").value;
+            if (!title || !body) {
+                alert("اعلان باید عنوان و محتوا داشته باشد.");
+                return;
+            }
+            notificationConnection.invoke("SendNotification", title, body).then(function () {
+            }).catch(function (err) {
+                return console.error(err.toString());
+            });
+            event.preventDefault();
+        }
+
+        notificationConnection.on("ReceiveNotification", function (title, body) {
+            if (Notification.permission === "default" || Notification.permission === "denied") {
+                Notification.requestPermission();
+            }
+            new Notification(title, {
+                body: body
+            });
+        });
+                // #endregion
     </script>
 }

@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.SignalR;
-
-namespace WebUi.Hubs;
+﻿namespace WebUi.Hubs;
 
 public class ChatHub : Hub
 {
@@ -8,6 +6,7 @@ public class ChatHub : Hub
     {
         await Clients.All.SendAsync("RecieveMessage", user, message);
     }
+
     public async Task SendMessage(string user, string receiverConnectionId, string message)
     {
         await Clients.Client(receiverConnectionId).SendAsync("RecieveMessage", user, message);
